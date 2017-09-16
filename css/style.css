@@ -1,0 +1,43 @@
+body {
+  padding-top: 100px;
+}
+.my-header {
+  background-image: linear-gradient(#04519b, #044687 60%, #033769);
+  min-height: 70px;
+  padding-top: 5px;
+}
+.my-header .navbar-header {
+  font-size: 24px;
+  font-weight: 700;
+  color: #aaccFF;
+  padding-top: 10px;
+}
+#dogs #pages .focus {
+  background-color: #c1d8ff;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+#dogs #pages .selected {
+  background-color: #045099;
+  color: #fff;
+}
+#dogs #pages .pageNumber {
+  padding: 2px 6px;
+}
+table#tblData thead > tr {
+  background-color: #c1d8ff;
+}
+table#tblData tbody td {
+  padding: 10px 20px;
+}
+table#tblData tbody td.breed {
+  text-transform: capitalize;
+}
+table#tblData tbody td.sub-breed ul {
+  list-style: none;
+  text-transform: capitalize;
+  padding-left: 0;
+  width: 100px;
+}
+/*# sourceMappingURL=style.css.map */
