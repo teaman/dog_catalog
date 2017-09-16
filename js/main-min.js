@@ -54,7 +54,7 @@ $(document).ready(function() {
 // 		// 		photoArr[subBreeds[i]] = subBreedPhotoURL;
 // 		// 	});
 // 		}
-// console.log(photoArr);
+//
 // 		return photoArr.join("");
 // 	};
 
@@ -68,6 +68,7 @@ $(document).ready(function() {
 			// check if there are sub-breeds for this breed of dog
 			if(subBreedsCnt > 0) {
 				breedPhotoURLs = getPhotoURLs(breed, subBreeds);
+console.log(breedPhotoURLs);
 
 				for(let i = 0; i < subBreeds.length; i++) {
 console.log(subBreeds[i]);
@@ -77,7 +78,7 @@ console.log(subBreeds[i]);
 				// breedPhotos = createSubBreedPhotoList(breed, subBreeds);
 			}
 
-console.log(breedPhotos);
+
 			return "<tr>" +
 					"<td class='breed' id='" + breed + "'>" + breed + "</td>" +
 					"<td class='sub-breed'>" +
