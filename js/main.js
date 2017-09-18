@@ -98,25 +98,49 @@ const createButtonItemList = (items, itemClass = '') => {
 };
 
 
+// function: createButtonList
+// returns: [string] containing an html list of buttons
+// args: labels: [array] of buttons in HTML format
+//      dataVal: [string] class value to apply to each list item
+const createButtonList = (labels, dataType='', dataVal='') => {
+	let btnHTMLList = [];
+	let dataStr = '';
+
+	// handle an itemClass value when passed in
+	if(dataType.length) {
+		dataStr = 'data-' + dataType + '="' + dataVal + '" ';
+	}
+
+	// create a list of labels tag wrapped in a link string
+	for(let i = 0; i < labels.length; i++) {
+		let btnStr = '<button type="button" ' + dataStr + 'data-toggle="modal" data-target="#myModal">' + labels[i] + '</button>';
+		btnHTMLList.push(btnStr);
+	}
+
+	return btnHTMLList.join("");
+};
+
+
 // function: dogBreedRow
 // returns: [string] containing a table row with 2 cols: master breed name and a UL of any sub-breeds
 // args:
 // 		breed: [string] dog breed name
 //		subBreeds; [array] of sub breed names
 const dogBreedRow = (breed, subBreeds) => {
-	let itemListHTML = '';
+	let btnListHTML = '';
 	let subBreedsCnt = subBreeds.length;
 	let breedLink = '<button type="button" data-toggle="modal" data-target="#myModal">' + breed + '</button>';
 
 	// check if there are sub-breeds for this breed of dog
 	if(subBreedsCnt > 0) {
 		breedLink = breed;
-		itemListHTML = createButtonItemList(subBreeds, breed);
+		// itemListHTML = createButtonItemList(subBreeds, breed);
+		btnListHTML = createButtonList(subBreeds, "breed", breed);
 	}
 
 	return "<tr>" +
 		"<td class='breed'>" + breedLink + "</td>" +
-		"<td class='sub-breed'>" + itemListHTML + "</td>" +
+		"<td class='sub-breed'>" + btnListHTML + "</td>" +
 	"</tr>";
 };
 
@@ -154,43 +178,23 @@ $(document).ready(function() {
 		// add pagination to the div with id "#dogs"
 		addPagination('#dogs', dogBreeds.length);
 
-		// handler for clicks on an <a class="breed"> tag
-		$('.breed button').click(function(e) {
-	  	let breed = $(e.target).text();
-			let breedTitle = 'Breed: ' + breed;
+		// handler for clicks on a <td><button> combo
+		$('td button').click(function(e) {
+			let breed = '';
+			let subBreed = '';
+			let breedTitle = '';
+			let dataBreed = $(this).data("breed");
+			let targetText = $(this).text();
 
-			// clear out the title and image if previously exists
-			$('#myModalLabel').removeClass("error");
-			$('#showimagediv').html('').show();
-			// set the new modal title
-			$('#myModalLabel').text(breedTitle);
-
-			// get a random breed image and display with title
-			getRandomDogPhoto(breed).then(function(response) {
-				let img = {};
-
-				// check for error
-				if(response.status === 'error'){
-					$('#myModalLabel').addClass("error");
-					$('#myModalLabel').text(response.message); // change the title to show the error msg
-				}
-				// no error
-				else {
-					img = $('<img />', {
-						src : response.message,
-					 	class : "img-responsive"
-					});
-					$('#showimagediv').html(img).show();
-				}
-			});
-
-		});
-
-		// handler for clicks on a <li><a> combo
-		$('li button').click(function(e) {
-			let breed = $(this).parent().attr("class");
-			let subBreed = $(e.target).text();
-			let breedTitle = 'Breed: ' + breed + ' (' + subBreed + ')';
+			if(dataBreed !== undefined) {
+				breed = dataBreed;
+				subBreed = targetText;
+				breedTitle = 'Breed: ' + breed + ' (' + subBreed + ')';
+			}
+			else {
+				breed = targetText;
+				breedTitle = 'Breed: ' + breed;
+			}
 
 			// clear out the title and image if previously exists
 			$('#myModalLabel').removeClass("error");

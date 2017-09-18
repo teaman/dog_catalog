@@ -1,4 +1,5 @@
 @header-text-color: #aaccFF;
+@button-color: #e0ebfc;
 
 body {
   padding-top: 100px;
@@ -49,19 +50,14 @@ body {
 		}
 
 		table#tblData {
-			max-width: 400px;
-
 			thead > tr {
 				background-color: #c1d8ff;
 			}
-
 			tbody {
 				td {
-					padding: 10px 20px;
-					a {
-						text-align: left;
-					}
+					padding: 10px;
 				}
+
 				td.breed {
 					text-transform: capitalize;
 
@@ -69,8 +65,9 @@ body {
 						text-transform: capitalize;
 						border: 1px solid #ddd;
 						border-radius: 10% !important;margin: 0 5px;
-						background-color: #e0ebfc;
-						margin-left: -6px;
+						background-color: @button-color;
+						margin-left: -3px;
+						padding: 2px 3px 3px;
 					}
 				}
 
@@ -81,17 +78,13 @@ body {
 						text-transform: capitalize;
 						border: 1px solid #ddd;
 						border-radius: 5px;
-						background-color: #e0ebfc;
-						margin: 2px 0;
+						background-color: @button-color;
+						margin: 2px 4px;
+						padding: 2px 3px 3px;
 					}
 				}
-			}
 
-			ul {
-				list-style: none;
-				padding-left: 0;
 			}
-
 		}
 	}
 
@@ -111,6 +104,7 @@ body {
 
 		.well {
 			padding:9px;
+			margin-bottom: 0;
 			background-color: #045099;
 		}
 	}
@@ -133,12 +127,14 @@ body {
 	.modal-body {
 		#showimagediv {
 			margin-top: 0;
-			height: fit-content;
 		}
 	}
 }
 
 @media (max-width: 768px) {
+	.modal-content {
+		height: 90%;
+	}
 	.modal-header {
 		h3 {
 			font-size: 20px;
@@ -148,6 +144,7 @@ body {
 		#showimagediv {
 			margin-top: 0;
 			height: fit-content;
+			width: fit-content;
 		}
 	}
 }

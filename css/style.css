@@ -38,17 +38,11 @@ body #pages .pageNumber {
 body #dogs .btn {
   font-size: 16px;
 }
-body #dogs table#tblData {
-  max-width: 400px;
-}
 body #dogs table#tblData thead > tr {
   background-color: #c1d8ff;
 }
 body #dogs table#tblData tbody td {
-  padding: 10px 20px;
-}
-body #dogs table#tblData tbody td a {
-  text-align: left;
+  padding: 10px;
 }
 body #dogs table#tblData tbody td.breed {
   text-transform: capitalize;
@@ -59,7 +53,8 @@ body #dogs table#tblData tbody td.breed button {
   border-radius: 10% !important;
   margin: 0 5px;
   background-color: #e0ebfc;
-  margin-left: -6px;
+  margin-left: -3px;
+  padding: 2px 3px 3px;
 }
 body #dogs table#tblData tbody td.sub-breed {
   text-transform: capitalize;
@@ -69,11 +64,8 @@ body #dogs table#tblData tbody td.sub-breed button {
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #e0ebfc;
-  margin: 2px 0;
-}
-body #dogs table#tblData ul {
-  list-style: none;
-  padding-left: 0;
+  margin: 2px 4px;
+  padding: 2px 3px 3px;
 }
 body #myModal #myModalLabel {
   text-transform: capitalize;
@@ -87,6 +79,7 @@ body #myModal #showimagediv img {
 }
 body #myModal .well {
   padding: 9px;
+  margin-bottom: 0;
   background-color: #045099;
 }
 body footer {
@@ -100,16 +93,19 @@ body footer {
   }
   .modal-body #showimagediv {
     margin-top: 0;
-    height: fit-content;
   }
 }
 @media (max-width: 768px) {
+  .modal-content {
+    height: 90%;
+  }
   .modal-header h3 {
     font-size: 20px;
   }
   .modal-body #showimagediv {
     margin-top: 0;
     height: fit-content;
+    width: fit-content;
   }
 }
 /*# sourceMappingURL=style.css.map */
