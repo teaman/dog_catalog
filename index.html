@@ -17,15 +17,23 @@
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top my-header">
       <div class="container">
-        <div class="navbar-header">
+        <div class="navbar-header app-name">
           Dog Catalog
         </div>
       </div>
     </nav>
 
-		<section>
-			<div class="container">
-				<div id="dogs" class="col-md-3">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12">
+					<p>Click a name to view a random photo of that breed.
+					Additional clicks load different photos.</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div id="dogs" class="col-md-12">
 					<table class="table table-striped" id="tblData">
 						<thead>
 						<tr id="row-header">
@@ -38,12 +46,35 @@
 					</table>
 				</div>
 
-				<div class="col-md-9">
-
-				</div>
 			</div>
-		</section>
 
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><div aria-hidden="true">&times;</div></button>
+		        <h3 class="modal-title" id="myModalLabel">Modal title</h3>
+		      </div>
+		      <div class="modal-body">
+						<div id="showimagediv" class="photo well"></div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+		<footer>
+			<div id="bottom">
+				<p>Dog Catalog • Copyright &copy; 2017</p>
+			</div>
+		</footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

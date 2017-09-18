@@ -2,62 +2,152 @@
 
 body {
   padding-top: 100px;
-}
+	font-size: 16px;
 
-.my-header {
-	background-image: linear-gradient(#04519b, #044687 60%, #033769);
-	min-height: 70px;
-	padding-top: 5px;
-
-	.navbar-header {
-		font-size: 24px;
-		font-weight: 700;
-		color: @header-text-color;
-		padding-top: 10px;
+	.error {
+		color: red;
 	}
-}
 
-#dogs {
+	.my-header {
+		background-image: linear-gradient(#04519b, #044687 60%, #033769);
+		min-height: 70px;
+		padding-top: 5px;
+
+		.navbar-header {
+			font-size: 24px;
+			font-weight: 700;
+			color: @header-text-color;
+			padding: 10px 0px;
+			margin: 0;
+		}
+	}
+
 	#pages {
+		margin: 10px 0;
+
 		.focus {
-		  background-color: #c1d8ff;
-		  color: #fff;
-		  cursor: pointer;
-		  font-weight: bold;
+			background-color: #c1d8ff;
+			color: #fff;
+			cursor: pointer;
+			font-weight: bold;
 		}
 
 		.selected {
-		  background-color: #045099;
-  		color: #fff;
+			background-color: #045099;
+			color: #fff;
 		}
 
 		.pageNumber {
-		  padding: 2px 6px;
+			padding: 6px 10px;
+			border-radius: 50% !important;margin: 0 5px;
+		}
+	}
+
+	#dogs {
+		.btn {
+			font-size: 16px;
+		}
+
+		table#tblData {
+			max-width: 400px;
+
+			thead > tr {
+				background-color: #c1d8ff;
+			}
+
+			tbody {
+				td {
+					padding: 10px 20px;
+					a {
+						text-align: left;
+					}
+				}
+				td.breed {
+					text-transform: capitalize;
+
+					button {
+						text-transform: capitalize;
+						border: 1px solid #ddd;
+						border-radius: 10% !important;margin: 0 5px;
+						background-color: #e0ebfc;
+						margin-left: -6px;
+					}
+				}
+
+				td.sub-breed {
+					text-transform: capitalize;
+
+					button {
+						text-transform: capitalize;
+						border: 1px solid #ddd;
+						border-radius: 5px;
+						background-color: #e0ebfc;
+						margin: 2px 0;
+					}
+				}
+			}
+
+			ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+		}
+	}
+
+	#myModal {
+		#myModalLabel {
+			text-transform: capitalize;
+		}
+
+		#showimagediv {
+	    display: none;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.well {
+			padding:9px;
+			background-color: #045099;
+		}
+	}
+
+	footer {
+		padding: 20px;
+		background-image: linear-gradient(#04519b, #044687 60%, #033769);
+		color: white;
+	}
+}
+
+// MEDIA QUERIES
+
+@media (max-width: 991px) {
+	.modal-header {
+		h3 {
+			font-size: 22px;
+		}
+	}
+	.modal-body {
+		#showimagediv {
+			margin-top: 0;
+			height: fit-content;
 		}
 	}
 }
 
-table#tblData {
-	thead > tr {
-		background-color: #c1d8ff;
-	}
-
-	tbody {
-		td {
-			padding: 10px 20px;
-		}
-		td.breed {
-			text-transform: capitalize;
-		}
-
-		td.sub-breed {
-			ul {
-				list-style: none;
-				text-transform: capitalize;
-				padding-left: 0;
-				width: 100px;
-			}
+@media (max-width: 768px) {
+	.modal-header {
+		h3 {
+			font-size: 20px;
 		}
 	}
-
+	.modal-body {
+		#showimagediv {
+			margin-top: 0;
+			height: fit-content;
+		}
+	}
 }
